@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import Main from './components/Main';
+import Charts from './components/Charts';
+import World from './components/World';
 
 const App = () => {
-  // const [allCountriesData, setAllCountriesData] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null); 
 
   const handleCountryChange = (countryName) => {
@@ -21,7 +21,12 @@ const App = () => {
 
       <section className='container'>
         <div className= 'centered-element'>
-          <Main selectedCountry={selectedCountry}/>
+          {/* Conditionally render components */}
+      {selectedCountry ? ( // If a country is selected, show Main
+        <Charts selectedCountry={selectedCountry} /> 
+      ) : ( 
+        <World /> // Otherwise, show World by default
+      )}
         </div>
       </section>
     </div>
