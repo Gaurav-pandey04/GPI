@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container { /* This is the parent container */
+    position: relative; /* Required for absolute positioning */
+    height: 95vh; /* Set a height (or min-height) on the container */
+    width: 100vw;
+  }
+  
+  .centered-element {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%); 
+    border: 2px solid grey;
+    height: auto;
+    max-height: 75vh;
+    width: 40vw;
+    /* Styles for your element */
+  }
