@@ -1,46 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-google-charts';
 
-const Main = ({ selectedCountry, data }) => {
-    const [chartData, setChartData] = useState([]);
-
-    useEffect(() => {
-        const data = filterChartData(selectedCountry);
-        setChartData(data);
-      }, [selectedCountry, data]); 
-
-      const filterChartData = (countryName) => {
-        const selectedCountryData = allCountriesData.find(
-          (country) => country['country name'] === countryName
-        );
+const Main = ({ selectedCountry }) => { // Use the prop directly
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3001/api/countries');
-        const countries = await response.json();
-        setAllCountriesData(countries);
-
-        // Set the first country as default if available
-        if (countries.length > 0) {
-          setSelectedCountry(countries[0]['country name']);
-        } 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // Function to filter chart data by country
- 
-
-    if (selectedCountryData) {
-      return [
-        ['Indicator', 'Value'],
-        ['Ladder score', selectedCountryData['Ladder score']],
-        ['Standard error of ladder score', selectedCountryData['Standard error of ladder score']],
+        const allCountriesData = await response.json();
+        // Find the selected country's data
+        const selectedCountryData = allCountriesData.find(
+          (country) => country['country name'] === selectedCountry
+        );
+        // If country found, prepare data for the chart
+        if (selectedCountryData) {
+          const chartData = [
+            ['Indicator', 'Value'],
+            ['Ladder score', selectedCountryData['Ladder score']],
+            ['Standard error of ladder score', selectedCountryData['Standard error of ladder score']],
         ['upperwhisker', selectedCountryData['upperwhisker']],
         ['lowerwhisker', selectedCountryData['lowerwhisker']],
         ['Logged GDP per capita', selectedCountryData['Logged GDP per capita']],
@@ -57,14 +35,26 @@ const Main = ({ selectedCountry, data }) => {
         ['Explained by: Generosity', selectedCountryData['Explained by: Generosity']],
         ['Explained by: Perceptions of corruption', selectedCountryData['Explained by: Perceptions of corruption']],
         ['Dystopia + residual', selectedCountryData['Dystopia + residual']]
-      ]
-    } else {
-      return []; // Return empty array if country not found
-    }
-  };
+          ];
+          setChartData(chartData); 
+        } else {
+          setChartData([]); // Clear chart data if no country selected yet
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
+    // Only fetch data when selectedCountry prop changes
+    if (selectedCountry) { // Check if a country is selected
+      fetchData(); 
+    }
+  }, [selectedCountry]); // Update effect when selectedCountry changes
+
+  // ... rest of your component (Chart rendering logic)
+  
   return (
-    <div>
+      <div>
     <h2>{selectedCountry ? `${selectedCountry} Data` : 'Country Data'}</h2>
     <Chart
       width={'100%'}
@@ -86,4 +76,4 @@ const Main = ({ selectedCountry, data }) => {
   );
 }
 
-export default Main
+export default Main;
