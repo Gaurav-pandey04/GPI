@@ -149,9 +149,9 @@ const Modal = () => {
                                 <div className='modal-select'>
                                     {countries.map((country) => (
                                         country['country name'] ? ( // Ternary operator for undefined check
-                                            <div key={country._id} className='modal-country'>
-                                                <button onClick={(e) => onSelect(country["country name"], e)} className=" focus:bg-blue-500 focus:text-white flex width-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                                    <span className="ms-3  modal-value">{country["country name"]}</span>
+                                            <div className='modal-country m-2'>
+                                                <button onClick={(e) => onSelect(country["country name"], e)} className="p-2 bg-gray-100 hover:bg-gray-300 rounded-lg focus:bg-blue-500 focus:text-white flex width-full items-center text-gray-900  dark:text-white dark:hover:bg-gray-700 group">
+                                                    <span className="ms-3 modal-value">{country["country name"]}</span>
                                                 </button>
                                             </div>
                                         ) : null // Render nothing if undefined
