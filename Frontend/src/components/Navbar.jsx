@@ -4,7 +4,7 @@ import data from './data.json';
 const Navbar = () => {
     const dt = data;
     
-    const append = () => {
+    const append = (e) => {
         const message = document.getElementById('input').value;
         const messageContainer = document.getElementById('messageContainer')
         const messageElement = document.createElement('div');
@@ -24,6 +24,7 @@ const Navbar = () => {
             .catch(error => {
                 console.error('Error:', error);
             });
+            e.preventDefault();
     }
 
     async function getGeminiResponse(prompt) {
@@ -125,12 +126,12 @@ const Navbar = () => {
                                 <div class="relative w-full">
                                     <input type="text" id='input' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ask your questions....." required />
                                 </div>
-                                <button type="submit" class="p-1.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <button type='submit' class="p-1.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
                                     </svg>
-
-                                    <span class="sr-only">Send</span>
+{/* 
+                                    <span class="sr-only">Send</span> */}
                                 </button>
                             </form>
                         </div>
