@@ -64,3 +64,11 @@
     float: right;
     clear: both;
   }
+
+  .modal-select{
+    display: flex;
+    flex-wrap: wrap;
+    height: 20vh;
+    margin-bottom: 20px;
+    overflow: auto;
+  }
