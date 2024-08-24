@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Modal = () => {
+const Modal = ({ onComparisonSubmit }) => {
     const getValues = (e) => {
         e.preventDefault();
         const firstCountry = document.getElementById('first').value;
@@ -25,6 +25,7 @@ const Modal = () => {
         }
         if (firstSame && secondSame) {
             console.log("Continue, Succesfully!");
+            onComparisonSubmit([firstCountry, secondCountry]);
         }
         if (!firstSame || !secondSame) {
             alert('Country Name Mismatched');
