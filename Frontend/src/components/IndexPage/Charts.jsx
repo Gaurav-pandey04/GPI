@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-google-charts';
 
-const Charts = ({ selectedCountry }) => { // Use the prop directly
+const Charts = ({ selectedCountry, chartType }) => { // Use the prop directly
   const [chartData, setChartData] = useState([]);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -52,6 +52,7 @@ const Charts = ({ selectedCountry }) => { // Use the prop directly
   }, [selectedCountry]); // Update effect when selectedCountry changes
 
   // ... rest of your component (Chart rendering logic)
+  
 
   return (
     <div className='adjust-width'>
@@ -59,7 +60,7 @@ const Charts = ({ selectedCountry }) => { // Use the prop directly
       <Chart
         width={'100%'}
         height={'400px'}
-        chartType="LineChart" // Changed to LineChart
+        chartType={chartType} // Changed to LineChart
         loader={
           <div role="status">
             <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
