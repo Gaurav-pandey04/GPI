@@ -85,3 +85,9 @@
     height: 100vh;
     z-index: -1;
   }
+
+  .resize{
+    width: 80vw;
+    margin: auto;
+    margin-top: 38px;
+  }
