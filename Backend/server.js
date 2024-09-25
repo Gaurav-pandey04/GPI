@@ -17,14 +17,6 @@ mongoose.connect('mongodb://localhost:27017/index', {
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
-// Schema (not strictly required for reading all fields, but good practice)
-const prosperitySchema = new mongoose.Schema({
-  "Regional indicator": String,
-  "Ladder score": Number,
-  // ... add other fields from your MongoDB document
-  "country name": String 
-});
-
 // API endpoint to fetch data for all countries (all fields)
 app.get('/api/countries', async (req, res) => {
     try {
@@ -40,7 +32,7 @@ app.get('/api/countries', async (req, res) => {
 app.get('/api/countries/:countryName', async (req, res) => {
     try {
         const countryName = req.params.countryName;
-        const countryData = await mongoose.connection.collection('Report').findOne({ "country name": countryName });
+        const countryData = await mongoose.connection.collection('Report').findOne({ "Country name": countryName });
         if (!countryData) {
             return res.status(404).json({ message: 'Country not found' });
         }

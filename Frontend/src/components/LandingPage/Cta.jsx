@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Chart from 'react-google-charts';
-import { motion } from "framer-motion"
 
 
 const Cta = () => {
@@ -13,30 +12,32 @@ const Cta = () => {
         const allCountriesData = await response.json();
         // Find the selected country's data
         const countryData = allCountriesData.find(
-          (country) => country['country name'] === 'India'
+          (country) => country['Country name'] === 'India'
         );
         // If country found, prepare data for the chart
         if (countryData) {
           const chartData = [
             ['Indicator', 'Value'],
-            ['Ladder score', countryData['Ladder score']],
-            ['Standard error of ladder score', countryData['Standard error of ladder score']],
-            ['upperwhisker', countryData['upperwhisker']],
-            ['lowerwhisker', countryData['lowerwhisker']],
-            ['Logged GDP per capita', countryData['Logged GDP per capita']],
-            ['Social support', countryData['Social support']],
-            ['Healthy life expectancy', countryData['Healthy life expectancy']],
-            ['Freedom to make life choices', countryData['Freedom to make life choices']],
-            ['Generosity', countryData['Generosity']],
-            ['Perceptions of corruption', countryData['Perceptions of corruption']],
-            ['Ladder score in Dystopia', countryData['Ladder score in Dystopia']],
-            ['Explained by: Log GDP per capita', countryData['Explained by: Log GDP per capita']],
-            ['Explained by: Social support', countryData['Explained by: Social support']],
-            ['Explained by: Healthy life expectancy', countryData['Explained by: Healthy life expectancy']],
-            ['Explained by: Freedom to make life choices', countryData['Explained by: Freedom to make life choices']],
-            ['Explained by: Generosity', countryData['Explained by: Generosity']],
-            ['Explained by: Perceptions of corruption', countryData['Explained by: Perceptions of corruption']],
-            ['Dystopia + residual', countryData['Dystopia + residual']]
+            ['Climate', countryData['Climate']],
+            ['Corruption', countryData['Corruption']],
+            ['Democracy', countryData['Democracy']],
+            ['Ease of doing Business', countryData['Ease of doing Business']],
+            ['Fire Power', countryData['Fire Power']],
+            ['GDP', countryData['GDP']],
+            ['Diplomacy', countryData['Diplomacy']],
+            ['Gender Gap', countryData['Gender Gap']],
+            ['Health & Security', countryData['Health & Security']],
+            ['Hunger', countryData['Hunger']],
+            ['Terrsiom', countryData['Terrsiom']],
+            ['Human Dev', countryData['Human Dev']['']], 
+            ['Freedom', countryData['Freedom']],
+            ['GDP per Capita', countryData['GDP per Capita']],
+            ['Peace', countryData['Peace']],
+            ['Samrt City', countryData['Samrt City']],
+            ['Talent', countryData['Talent']],
+            ['Tourism', countryData['Tourism']],
+            ['Happiness', countryData['Happiness']],
+            ['Press Freedom', countryData['Press Freedom']], 
           ];
           setChartData(chartData);
         } else {
@@ -53,7 +54,7 @@ const Cta = () => {
   }, []); // Update effect when selectedCountry changes
 
   return (
-    <section class="bg-white dark:bg-gray-900 mt-8">
+    <section class="bg-white dark:bg-gray-900 mt-24">
       <div class="gap-8 items-center py-8 px-4 mx-auto xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div>
           <Chart

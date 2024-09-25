@@ -12,10 +12,11 @@ const World = () => {
 
         // Prepare data for GeoChart
         const geoChartData = [
-          ['Country', 'Healthy life expectancy'],
+          ['Country', 'Final score', 'Rank'],
           ...countries.map(country => [
-            country['country name'],
-            country['Healthy life expectancy'],
+            country['Country name'],
+            country['Final Score'],
+            country['Rank'],
           ]),
         ];
 
@@ -49,6 +50,7 @@ const World = () => {
           options={{
             // Customize chart options here
             title: 'Healthy Life Expectancy by Country',
+            region: 'world',
             colorAxis: { colors: ['#e6f2ff', '#0066cc'] }, // Customize color range 
           }}
         />

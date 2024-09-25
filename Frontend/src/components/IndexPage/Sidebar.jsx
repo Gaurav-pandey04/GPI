@@ -12,7 +12,7 @@ const Sidebar = ({ onCountrySelect }) => {
                 }
                 const data = await response.json();
                 setCountries(data);
-            } catch (error) {
+            } catch (error) { 
                 console.error(error);
                 // Handle errors (e.g., display an error message)
             }
@@ -65,10 +65,10 @@ const Sidebar = ({ onCountrySelect }) => {
                         </button>
                     </li>
                     {countries.map((country) => (
-                        country['country name'] ? ( // Ternary operator for undefined check
+                        country['Country name'] ? ( // Ternary operator for undefined check
                             <li key={country._id} className='country'>
-                                <button onClick={() => onCountrySelect(country["country name"])} href={country["country name"]} className="focus:bg-blue-500 focus:text-white flex width-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    <span className="ms-3">{country["country name"]}</span>
+                                <button onClick={() => onCountrySelect(country["Country name"])} href={country["country name"]} className="focus:bg-blue-500 focus:text-white flex width-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    <span className="ms-3">{country["Country name"]}</span>
                                 </button>
                             </li>
                         ) : null // Render nothing if undefined

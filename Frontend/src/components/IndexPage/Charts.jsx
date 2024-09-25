@@ -11,30 +11,32 @@ const Charts = ({ selectedCountry, chartType }) => { // Use the prop directly
         const allCountriesData = await response.json();
         // Find the selected country's data
         const selectedCountryData = allCountriesData.find(
-          (country) => country['country name'] === selectedCountry
+          (country) => country['Country name'] === selectedCountry
         );
         // If country found, prepare data for the chart
         if (selectedCountryData) {
           const chartData = [
             ['Indicator', 'Value'],
-            ['Ladder score', selectedCountryData['Ladder score']],
-            ['Standard error of ladder score', selectedCountryData['Standard error of ladder score']],
-            ['upperwhisker', selectedCountryData['upperwhisker']],
-            ['lowerwhisker', selectedCountryData['lowerwhisker']],
-            ['Logged GDP per capita', selectedCountryData['Logged GDP per capita']],
-            ['Social support', selectedCountryData['Social support']],
-            ['Healthy life expectancy', selectedCountryData['Healthy life expectancy']],
-            ['Freedom to make life choices', selectedCountryData['Freedom to make life choices']],
-            ['Generosity', selectedCountryData['Generosity']],
-            ['Perceptions of corruption', selectedCountryData['Perceptions of corruption']],
-            ['Ladder score in Dystopia', selectedCountryData['Ladder score in Dystopia']],
-            ['Explained by: Log GDP per capita', selectedCountryData['Explained by: Log GDP per capita']],
-            ['Explained by: Social support', selectedCountryData['Explained by: Social support']],
-            ['Explained by: Healthy life expectancy', selectedCountryData['Explained by: Healthy life expectancy']],
-            ['Explained by: Freedom to make life choices', selectedCountryData['Explained by: Freedom to make life choices']],
-            ['Explained by: Generosity', selectedCountryData['Explained by: Generosity']],
-            ['Explained by: Perceptions of corruption', selectedCountryData['Explained by: Perceptions of corruption']],
-            ['Dystopia + residual', selectedCountryData['Dystopia + residual']]
+            ['Climate', selectedCountryData['Climate']],
+            ['Corruption', selectedCountryData['Corruption']],
+            ['Democracy', selectedCountryData['Democracy']],
+            ['Ease of doing Business', selectedCountryData['Ease of doing Business']],
+            ['Fire Power', selectedCountryData['Fire Power']],
+            ['GDP', selectedCountryData['GDP']],
+            ['Diplomacy', selectedCountryData['Diplomacy']],
+            ['Gender Gap', selectedCountryData['Gender Gap']],
+            ['Health & Security', selectedCountryData['Health & Security']],
+            ['Hunger', selectedCountryData['Hunger']],
+            ['Terrsiom', selectedCountryData['Terrsiom']],
+            ['Human Dev', selectedCountryData['Human Dev']['']], 
+            ['Freedom', selectedCountryData['Freedom']],
+            ['GDP per Capita', selectedCountryData['GDP per Capita']],
+            ['Peace', selectedCountryData['Peace']],
+            ['Samrt City', selectedCountryData['Samrt City']],
+            ['Talent', selectedCountryData['Talent']],
+            ['Tourism', selectedCountryData['Tourism']],
+            ['Happiness', selectedCountryData['Happiness']],
+            ['Press Freedom', selectedCountryData['Press Freedom']], 
           ];
           setChartData(chartData);
         } else {
@@ -57,7 +59,7 @@ const Charts = ({ selectedCountry, chartType }) => { // Use the prop directly
   return (
     <div className='adjust-width'>
       <h1 className='text-center text-2xl'>{selectedCountry ? `${selectedCountry} ` : 'Country Data'}</h1>
-      <Chart
+      <Chart 
         width={'100%'}
         height={'400px'}
         chartType={chartType} // Changed to LineChart
@@ -73,7 +75,7 @@ const Charts = ({ selectedCountry, chartType }) => { // Use the prop directly
         data={chartData}
         options={{
           title: 'Prosperity Indicators',
-          chartArea: { width: '80%' },
+          chartArea: { width: '90%' },
           hAxis: { title: 'Indicator', textStyle: { fontSize: 10 } },
           vAxis: { title: 'Value', minValue: 0 },
           legend: { position: 'none' }, // You might want a legend for a line chart
