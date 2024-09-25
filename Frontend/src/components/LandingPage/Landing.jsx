@@ -5,6 +5,7 @@ import Cta from './Cta'
 import Footer from './Footer'
 import Cards from './Cards'
 import './landing.css'
+import FAQ from './FAQ'
 
 const Landing = () => {
     return (
@@ -13,6 +14,7 @@ const Landing = () => {
             <Hero/>
             <Cta/>
             <Cards/>
+            <FAQ/>
             <Footer/>
         </div>
     )
