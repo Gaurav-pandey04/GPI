@@ -4,7 +4,6 @@ import Hero from './Hero'
 import Cta from './Cta'
 import Footer from './Footer'
 import Cards from './Cards'
-import './landing.css'
 import FAQ from './FAQ'
 
 const Landing = () => {

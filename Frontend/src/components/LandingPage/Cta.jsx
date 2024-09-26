@@ -55,7 +55,7 @@ const Cta = () => {
 
   return (
     <section class="bg-white dark:bg-gray-900 mt-24">
-      <div class="gap-8 items-center py-8 px-4 mx-auto xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+      <div class="gap-8 items-center py-8 sm:px-4 mx-auto xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <div>
           <Chart
             width={'100%'}
