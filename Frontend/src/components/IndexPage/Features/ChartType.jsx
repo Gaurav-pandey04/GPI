@@ -33,7 +33,7 @@ const ChartType = ({ onchartTypeSubmit }) => {
                         {/* <!-- Modal body --> */}
                         <div class="p-4 md:p-5 space-y-4">
                             
-                            <div class="flex items-center flex-wrap p-4 md:p-5  border-gray-200 rounded-b dark:border-gray-600">
+                            <div className="flex flex-wrap justify-center">
                                 <button onClick={() => { onchartTypeSubmit('ScatterChart') }}  type="button" class="py-2.5 px-5 m-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-blue-700 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                     Scatter Chart
                                 </button>

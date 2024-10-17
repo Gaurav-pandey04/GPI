@@ -39,19 +39,23 @@ const App = () => {
         <Route path="/index" element={
           <div>
             <Navbar onComparisonSubmit={handleComparisonSubmit} />
-            <Sidebar onCountrySelect={handleCountryChange} />
-            <section className='container'>
-              <div className='centered-element'>
-                {isCopmarison ? (
-                  <Compare countries={comparisonCountries} chartType={chartType}/>
-                ) : selectedCountry ? (
-                  <Charts selectedCountry={selectedCountry}  chartType={chartType}/>
-                ) : (
-                  <World />
-                )}
+            <div className="flex flex-col md:flex-row">
+              <Sidebar onCountrySelect={handleCountryChange} />
+              <div className="flex-1">
+                <section className='container'>
+                  <div className='centered-element'>
+                    {isCopmarison ? (
+                      <Compare countries={comparisonCountries} chartType={chartType}/>
+                    ) : selectedCountry ? (
+                      <Charts selectedCountry={selectedCountry}  chartType={chartType}/>
+                    ) : (
+                      <World />
+                    )}
+                  </div>
+                </section>
+                <Features onchartTypeSubmit={handlechartType}/>
               </div>
-            </section>
-            <Features onchartTypeSubmit={handlechartType}/>
+            </div>
           </div>
         } />
       </Routes>

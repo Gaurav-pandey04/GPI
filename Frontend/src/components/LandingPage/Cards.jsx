@@ -5,7 +5,7 @@ const Cards = () => {
 
         <div class='resize'>
             <h2 class="mb-4 text-4xl text-center mb-8 tracking-tight font-bold text-gray-900 dark:text-white">See how we collect the data</h2>
-            <div class="grid mb-8 dark:border-gray-700 md:mb-12 md:grid-cols-3 bg-white dark:bg-gray-800">
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 bg-white dark:bg-gray-800">
                 <figure class="flex flex-col items-center justify-center p-8 text-center bg-white  md:rounded-t-none md:rounded-ss-lg dark:bg-gray-800 dark:border-gray-700">
 
                     <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">

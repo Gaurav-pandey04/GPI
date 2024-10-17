@@ -91,3 +91,10 @@
     margin: auto;
     margin-top: 38px;
   }
+
+@media (max-width: 640px) {
+  .centered-element {
+    width: 95vw;
+    left: 50%;
+  }
+}
